@@ -279,85 +279,106 @@
 
     /* ── HOW IT WORKS ── */
     .hiw-section {
-      padding: 88px 5%;
-      background: var(--cream);
+      background: var(--green);
+      padding: 96px 5%;
     }
 
     .hiw-inner {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .hiw-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      padding: 64px 0;
-      border-bottom: 1px solid #e2ddd6;
+    .hiw-section .section-eyebrow { color: #7ec8a0; }
+
+    .hiw-section h2 {
+      color: var(--white);
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      max-width: 520px;
+      margin-bottom: 72px;
     }
 
-    .hiw-row:last-child { border-bottom: none; }
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      position: relative;
+    }
 
-    .hiw-row.reverse { direction: rtl; }
-    .hiw-row.reverse > * { direction: ltr; }
+    /* connecting line between steps */
+    .hiw-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(100% / 6);
+      right: calc(100% / 6);
+      height: 1px;
+      background: repeating-linear-gradient(
+        to right,
+        rgba(255,255,255,0.25) 0,
+        rgba(255,255,255,0.25) 6px,
+        transparent 6px,
+        transparent 14px
+      );
+      z-index: 0;
+    }
 
-    .hiw-text { }
+    .hiw-step {
+      padding: 0 32px 0 0;
+      position: relative;
+      z-index: 1;
+    }
 
-    .hiw-step-num {
-      display: inline-flex;
+    .hiw-step:last-child { padding-right: 0; }
+
+    .hiw-step-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--green);
+      margin-bottom: 28px;
+      color: #7ec8a0;
+    }
+
+    .hiw-step-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .hiw-step-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+
+    .hiw-step h3 {
+      font-size: 20px;
+      font-weight: 700;
       color: var(--white);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
     }
 
-    .hiw-text h3 {
-      font-size: clamp(18px, 2vw, 22px);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .hiw-text p {
-      font-size: 16px;
-      color: var(--muted);
+    .hiw-step p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.58);
       line-height: 1.7;
     }
 
-    .hiw-img-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--cream-dark);
-      border-radius: 20px;
-      padding: 32px 24px;
-      border: 1px solid #e2ddd6;
-    }
-
-    .hiw-phone {
-      width: 220px;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 0 0 8px #1e3a2f, 0 0 0 9px #2d5240;
-      background: #fff;
-    }
-
-    .hiw-phone img {
-      width: 100%;
-      display: block;
-    }
-
     @media (max-width: 768px) {
-      .hiw-row { grid-template-columns: 1fr; gap: 32px; }
-      .hiw-row.reverse { direction: ltr; }
+      .hiw-steps { grid-template-columns: 1fr; gap: 48px; }
+      .hiw-steps::before { display: none; }
+      .hiw-step { padding-right: 0; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 24px; }
     }
 
     /* ── CTA ── */
@@ -501,45 +522,43 @@
   <section class="hiw-section" id="how-it-works">
     <div class="hiw-inner">
       <div class="section-eyebrow">How it works</div>
-      <h2 style="max-width: 480px; margin-bottom: 0; font-size: clamp(26px, 3.5vw, 40px);">From barn to phone in three steps.</h2>
+      <h2>From the barn to a complete record in under a minute.</h2>
 
-      <div class="hiw-row">
-        <div class="hiw-text">
-          <div class="hiw-step-num">1</div>
-          <h3>See every mare and what needs to happen today</h3>
-          <p>The dashboard shows all your mares across every ranch, sorted by urgency. Overdue tasks surface first. One tap takes you straight to the record.</p>
-        </div>
-        <div class="hiw-img-wrap">
-          <div class="hiw-phone">
-            <img src="screen_dashboard.png" alt="Ovum dashboard showing today's tasks" />
-          </div>
-        </div>
-      </div>
+      <div class="hiw-steps">
 
-      <div class="hiw-row reverse">
-        <div class="hiw-text">
-          <div class="hiw-step-num">2</div>
-          <h3>Track the protocol step by step</h3>
-          <p>Each mare has a full protocol timeline — injections, ultrasounds, flush day, preg check. Completed steps show exactly what was logged. Upcoming steps show what's next.</p>
-        </div>
-        <div class="hiw-img-wrap">
-          <div class="hiw-phone">
-            <img src="screen_mare.png" alt="Mare detail showing protocol timeline" />
+        <div class="hiw-step">
+          <div class="hiw-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
           </div>
+          <div class="hiw-step-label">Step 01</div>
+          <h3>Assign the protocol</h3>
+          <p>Add the mare, pick the protocol — 7-day CIDR, Ovsynch, or custom — and Ovum builds the full step-by-step timeline automatically.</p>
         </div>
-      </div>
 
-      <div class="hiw-row">
-        <div class="hiw-text">
-          <div class="hiw-step-num">3</div>
-          <h3>Log in seconds, right from the stall</h3>
-          <p>Tap Log Now, fill in the details — embryo count, grade, disposition, recipient mare — and save. The form pre-fills from the protocol so you're never starting from scratch.</p>
-        </div>
-        <div class="hiw-img-wrap">
-          <div class="hiw-phone">
-            <img src="screen_log.png" alt="QuickLog form for recording a flush" />
+        <div class="hiw-step">
+          <div class="hiw-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
           </div>
+          <div class="hiw-step-label">Step 02</div>
+          <h3>Log each step as it happens</h3>
+          <p>Today's tasks surface at the top — overdue first. One tap opens a pre-filled form. Injection, ultrasound, flush, preg check. Done in seconds.</p>
         </div>
+
+        <div class="hiw-step">
+          <div class="hiw-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <div class="hiw-step-label">Step 03</div>
+          <h3>Every record, searchable forever</h3>
+          <p>Embryo grades, sire data, recipient mares, outcomes — all structured and searchable. Spot patterns across mares. No binder, no lost notes.</p>
+        </div>
+
       </div>
     </div>
   </section>
