@@ -331,14 +331,24 @@
     }
 
     .hiw-img-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: var(--cream-dark);
       border-radius: 20px;
-      overflow: hidden;
+      padding: 32px 24px;
       border: 1px solid #e2ddd6;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
     }
 
-    .hiw-img-wrap img {
+    .hiw-phone {
+      width: 220px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 0 0 8px #1e3a2f, 0 0 0 9px #2d5240;
+      background: #fff;
+    }
+
+    .hiw-phone img {
       width: 100%;
       display: block;
     }
@@ -492,7 +502,9 @@
           <p>The dashboard shows all your mares across every ranch, sorted by urgency. Overdue tasks surface first. One tap takes you straight to the record.</p>
         </div>
         <div class="hiw-img-wrap">
-          <img src="screen_dashboard.png" alt="Ovum dashboard showing today's tasks" />
+          <div class="hiw-phone">
+            <img src="screen_dashboard.png" alt="Ovum dashboard showing today's tasks" />
+          </div>
         </div>
       </div>
 
@@ -503,7 +515,9 @@
           <p>Each mare has a full protocol timeline — injections, ultrasounds, flush day, preg check. Completed steps show exactly what was logged. Upcoming steps show what's next.</p>
         </div>
         <div class="hiw-img-wrap">
-          <img src="screen_mare.png" alt="Mare detail showing protocol timeline" />
+          <div class="hiw-phone">
+            <img src="screen_mare.png" alt="Mare detail showing protocol timeline" />
+          </div>
         </div>
       </div>
 
@@ -514,7 +528,9 @@
           <p>Tap Log Now, fill in the details — embryo count, grade, disposition, recipient mare — and save. The form pre-fills from the protocol so you're never starting from scratch.</p>
         </div>
         <div class="hiw-img-wrap">
-          <img src="screen_log.png" alt="QuickLog form for recording a flush" />
+          <div class="hiw-phone">
+            <img src="screen_log.png" alt="QuickLog form for recording a flush" />
+          </div>
         </div>
       </div>
     </div>
