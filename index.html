@@ -300,35 +300,25 @@
     }
 
     .who-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .who-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 28px 24px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .who-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(126,200,160,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      color: var(--mint);
+    .who-card:last-child {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
-
-    .who-card-icon svg { width: 20px; height: 20px; }
 
     .who-card h3 {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 8px;
@@ -336,13 +326,9 @@
     }
 
     .who-card p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .who-cards { grid-template-columns: 1fr; }
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
     }
 
     /* ── CTA ── */
@@ -522,31 +508,16 @@
       <div class="who-cards">
 
         <div class="who-card">
-          <div class="who-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
           <h3>Solo ambulatory repro vets</h3>
           <p>Managing 20 to 50 mares across multiple ranches from your truck. You need today's tasks in your pocket, not in a binder on the seat.</p>
         </div>
 
         <div class="who-card">
-          <div class="who-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
           <h3>Multi-vet repro practices</h3>
           <p>Shared cryobank inventory across staff. When your senior tech is out, anyone can pull up a client's embryo count in 10 seconds.</p>
         </div>
 
         <div class="who-card">
-          <div class="who-card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-            </svg>
-          </div>
           <h3>Anyone tracking frozen embryos</h3>
           <p>If you've ever spent a Sunday reconstructing your cryobank ledger from a spreadsheet, you know why this exists.</p>
         </div>
