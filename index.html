@@ -3,155 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ovum — Equine Reproduction, Digitized</title>
+  <title>Ovum — Equine Reproduction, Off Paper</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    /*
+      OVUM LANDING PAGE v2
+      Primary: #1b4332 (Forest)
+      Accent:  #40916c (Meadow)
+      Background: #f7f4ef (Parchment)
+      Text: #111827 (Ink)
+      Muted: #6b7280 (Stone)
+    */
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green:      #1e3a2f;
-      --green-mid:  #2d5240;
-      --green-lt:   #4a7c63;
-      --cream:      #f5f1eb;
-      --cream-dark: #ede8e0;
-      --text:       #1a1a1a;
-      --muted:      #6b6b6b;
-      --white:      #ffffff;
-      --red:        #c0392b;
+      --forest:   #1b4332;
+      --meadow:   #40916c;
+      --mint:     #7ec8a0;
+      --parchment:#f7f4ef;
+      --white:    #ffffff;
+      --ink:      #111827;
+      --stone:    #6b7280;
+      --sand:     #e8e3db;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
     /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--green);
-      padding: 0 5%;
+      background: var(--forest);
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 60px;
+      padding: 0 5%;
     }
 
     .nav-logo {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--white);
       letter-spacing: -0.5px;
     }
 
-    .nav-links {
+    .nav-right {
       display: flex;
       align-items: center;
-      gap: 32px;
-      list-style: none;
+      gap: 24px;
     }
 
-    .nav-links a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      transition: color 0.2s;
-      padding: 12px 4px;
-      display: inline-flex;
-      align-items: center;
+    .nav-context {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.3px;
     }
 
-    .nav-links a:hover { color: var(--white); }
-
-    .nav-cta {
+    .btn-nav {
       background: var(--white);
-      color: var(--green) !important;
-      font-weight: 600 !important;
-      padding: 12px 18px !important;
+      color: var(--forest);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
       border-radius: 8px;
+      transition: background 0.2s;
     }
 
-    .nav-cta:hover { background: var(--cream) !important; }
+    .btn-nav:hover { background: var(--parchment); }
 
     @media (max-width: 640px) {
-      .nav-links { display: none; }
+      .nav-context { display: none; }
     }
 
     /* ── HERO ── */
     .hero {
       position: relative;
-      padding: 100px 5% 90px;
-      text-align: center;
       overflow: hidden;
+      padding: 96px 5% 88px;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('hero.png');
+      background-image: url('hero-mares.png');
       background-size: cover;
-      background-position: center 30%;
-      filter: brightness(0.38);
+      background-position: center 60%;
+      filter: brightness(0.32);
       z-index: 0;
     }
 
-    .hero > *:not(.hero-bg) {
+    .hero-content {
       position: relative;
       z-index: 1;
+      max-width: 640px;
     }
 
     .hero-eyebrow {
       display: inline-block;
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 28px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 700;
+      font-size: clamp(36px, 5.5vw, 64px);
+      font-weight: 600;
       color: var(--white);
-      line-height: 1.12;
-      letter-spacing: -1px;
-      max-width: 800px;
-      margin: 0 auto 24px;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
     }
 
-    .hero h1 span { color: #7ec8a0; }
-
-    .hero p {
+    .hero-sub {
       font-size: clamp(16px, 2vw, 20px);
-      color: rgba(255,255,255,0.72);
-      max-width: 560px;
-      margin: 0 auto 40px;
+      color: rgba(255,255,255,0.7);
       line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 36px;
     }
 
-    .hero-btns {
+    .hero-cta {
       display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
     }
 
     .btn-primary {
       background: var(--white);
-      color: var(--green);
-      font-size: 15px;
+      color: var(--forest);
+      font-size: 16px;
       font-weight: 600;
-      padding: 14px 28px;
+      padding: 16px 32px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
@@ -159,46 +159,36 @@
       display: inline-block;
     }
 
-    .btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: transparent;
-      color: rgba(255,255,255,0.85);
-      font-size: 15px;
-      font-weight: 500;
-      padding: 14px 28px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.25);
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      display: inline-block;
+    .btn-primary:hover {
+      background: var(--parchment);
+      transform: translateY(-1px);
     }
 
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.6);
-      color: var(--white);
+    .hero-note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
     }
 
     /* ── STATS ── */
     .stats {
-      background: var(--cream-dark);
-      padding: 56px 5%;
+      background: var(--forest);
+      padding: 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      border-top: 1px solid #ddd8cf;
-      border-bottom: 1px solid #ddd8cf;
     }
 
     .stat {
       text-align: center;
-      padding: 24px 16px;
+      padding: 48px 16px;
+      border-right: 1px solid rgba(255,255,255,0.08);
     }
 
+    .stat:last-child { border-right: none; }
+
     .stat-num {
-      font-size: clamp(36px, 5vw, 52px);
-      font-weight: 700;
-      color: var(--green);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 600;
+      color: var(--white);
       letter-spacing: -1.5px;
       line-height: 1;
       margin-bottom: 8px;
@@ -206,231 +196,124 @@
 
     .stat-label {
       font-size: 13px;
-      color: var(--muted);
-      line-height: 1.4;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .stat-source {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 4px;
     }
 
     @media (max-width: 560px) {
       .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 16px; }
+      .stat:last-child { border-bottom: none; }
     }
 
-    /* ── SECTIONS ── */
-    .section {
-      padding: 88px 5%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--green-lt);
-      margin-bottom: 16px;
-    }
-
-    .section h2 {
-      font-size: clamp(26px, 3.5vw, 40px);
-      font-weight: 700;
-      letter-spacing: -0.8px;
-      line-height: 1.2;
-      max-width: 600px;
-      margin-bottom: 56px;
-    }
-
-    /* ── PAIN POINTS ── */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .pain-card {
-      background: var(--white);
-      border: 1px solid #e2ddd6;
-      border-radius: 16px;
-      padding: 28px 24px;
-    }
-
-    .pain-icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 16px;
-      color: var(--green);
-    }
-
-    .pain-card h3 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .pain-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .pain-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ── HOW IT WORKS ── */
-    .hiw-section {
-      background: var(--green);
+    /* ── PROBLEM / SOLUTION ── */
+    .ps-section {
       padding: 96px 5%;
     }
 
-    .hiw-inner {
+    .ps-grid {
       max-width: 1100px;
       margin: 0 auto;
-    }
-
-    .hiw-section .section-eyebrow { color: #7ec8a0; }
-
-    .hiw-section h2 {
-      color: var(--white);
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.8px;
-      line-height: 1.15;
-      max-width: 520px;
-      margin-bottom: 72px;
-    }
-
-    .hiw-steps {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      position: relative;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
     }
 
-    /* connecting line between steps */
-    .hiw-steps::before {
-      content: '';
-      position: absolute;
-      top: 36px;
-      left: calc(100% / 6);
-      right: calc(100% / 6);
-      height: 1px;
-      background: repeating-linear-gradient(
-        to right,
-        rgba(255,255,255,0.25) 0,
-        rgba(255,255,255,0.25) 6px,
-        transparent 6px,
-        transparent 14px
-      );
-      z-index: 0;
-    }
-
-    .hiw-step {
-      padding: 0 32px 0 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hiw-step:last-child { padding-right: 0; }
-
-    .hiw-step-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 28px;
-      color: #7ec8a0;
-    }
-
-    .hiw-step-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .hiw-step-label {
+    .ps-label {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 10px;
+      color: var(--stone);
+      margin-bottom: 20px;
     }
 
-    .hiw-step h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.25;
-      margin-bottom: 12px;
-      letter-spacing: -0.3px;
+    .ps-block h2 {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
     }
 
-    .hiw-step p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.58);
+    .ps-block p {
+      font-size: 16px;
+      color: var(--stone);
       line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .ps-block p:last-of-type { margin-bottom: 0; }
+
+    .ps-image {
+      border-radius: 12px;
+      margin-top: 24px;
+      overflow: hidden;
+      border: 1px solid var(--sand);
+    }
+
+    .ps-image img {
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
     }
 
     @media (max-width: 768px) {
-      .hiw-steps { grid-template-columns: 1fr; gap: 48px; }
-      .hiw-steps::before { display: none; }
-      .hiw-step { padding-right: 0; border-left: 1px solid rgba(255,255,255,0.12); padding-left: 24px; }
+      .ps-grid { grid-template-columns: 1fr; gap: 48px; }
     }
 
-    .hiw-step-features {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    /* ── WHO IT'S FOR ── */
+    .who-section {
+      background: var(--forest);
+      padding: 96px 5%;
     }
 
-    .hiw-feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+    .who-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .hiw-feature-item svg {
-      width: 14px;
-      height: 14px;
-      color: #7ec8a0;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .who-section .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--mint);
+      margin-bottom: 20px;
     }
 
-    .hiw-feature-item span {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.5;
+    .who-section h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+      margin-bottom: 56px;
     }
 
-    .hiw-feature-item strong {
-      color: rgba(255,255,255,0.82);
-      font-weight: 500;
-    }
-
-    /* ── FEATURE STRIP ── */
-    .feature-strip {
-      margin-top: 72px;
-      padding-top: 56px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+    .who-cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      text-align: left;
     }
 
-    .feature-tile {
+    .who-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 14px;
-      padding: 24px 20px;
+      padding: 28px 24px;
     }
 
-    .feature-tile-icon {
+    .who-card-icon {
       width: 40px;
       height: 40px;
       border-radius: 10px;
@@ -439,101 +322,124 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 16px;
-      color: #7ec8a0;
+      color: var(--mint);
     }
 
-    .feature-tile-icon svg {
-      width: 20px;
-      height: 20px;
-    }
+    .who-card-icon svg { width: 20px; height: 20px; }
 
-    .feature-tile h4 {
-      font-size: 14px;
+    .who-card h3 {
+      font-size: 15px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 8px;
       line-height: 1.3;
     }
 
-    .feature-tile p {
-      font-size: 12px;
-      color: rgba(255,255,255,0.45);
+    .who-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
       line-height: 1.6;
     }
 
-    @media (max-width: 900px) {
-      .feature-strip { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 560px) {
-      .feature-strip { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .who-cards { grid-template-columns: 1fr; }
     }
 
     /* ── CTA ── */
     .cta-section {
-      background: var(--cream-dark);
-      padding: 88px 5%;
+      position: relative;
+      padding: 96px 5%;
       text-align: center;
-      border-top: 1px solid #ddd8cf;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero.png');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.2);
+      z-index: 0;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
     }
 
     .cta-section h2 {
       font-size: clamp(26px, 3.5vw, 40px);
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: -0.8px;
-      max-width: 600px;
-      margin: 0 auto 16px;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
 
     .cta-section p {
       font-size: 17px;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 36px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
       line-height: 1.6;
     }
 
-    .cta-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .btn-green {
-      background: var(--green);
-      color: var(--white);
+    .btn-cta {
+      background: var(--white);
+      color: var(--forest);
       font-size: 16px;
       font-weight: 600;
       padding: 16px 36px;
-      border-radius: 12px;
+      border-radius: 10px;
       border: none;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
       display: inline-block;
     }
 
-    .btn-green:hover { background: var(--green-mid); transform: translateY(-1px); }
+    .btn-cta:hover {
+      background: var(--parchment);
+      transform: translateY(-1px);
+    }
+
+    .cta-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .cta-credibility {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.3px;
+    }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--green);
-      padding: 40px 5%;
+      background: var(--forest);
+      padding: 32px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .footer-logo {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--white);
     }
 
     .footer-text {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
     }
   </style>
 </head>
@@ -542,215 +448,129 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">Ovum</div>
-    <ul class="nav-links">
-      <li><a href="#problem">Problem</a></li>
-      <li><a href="#how-it-works">How it works</a></li>
-      <li><a href="#cta" class="nav-cta">Request Early Access</a></li>
-    </ul>
+    <div class="nav-right">
+      <span class="nav-context">For equine repro vets</span>
+      <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-nav">Request Early Access</a>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-eyebrow">Built for equine repro vets</div>
-    <h1>The paper binder is the last thing <span>equine repro</span> should still run on.</h1>
-    <p>Ovum replaces it. Protocol tracking, flush records, ultrasounds, and preg checks — logged in seconds from your phone.</p>
-    <div class="hero-btns">
-      <a href="#cta" class="btn-primary">Request Early Access →</a>
-      <a href="https://ovum-chi.vercel.app" target="_blank" class="btn-secondary">See the prototype</a>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Built for equine reproduction vets</div>
+      <h1>Equine reproduction, off paper.</h1>
+      <p class="hero-sub">The mobile app that replaces your binder. Protocol tracking, flush records, and embryo grading from your phone.</p>
+      <div class="hero-cta">
+        <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-primary">Request Early Access</a>
+        <span class="hero-note">Free during early access. No credit card required.</span>
+      </div>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">4–6 hrs</div>
-      <div class="stat-label">Daily paperwork<br>per vet</div>
+      <div class="stat-num">$175K+</div>
+      <div class="stat-label">Single embryo sale<br>at auction</div>
+      <div class="stat-source">Billings Livestock, 2024</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">55.9%</div>
+      <div class="stat-label">Of equine vets cite usability<br>as top software barrier</div>
+      <div class="stat-source">PubMed, 2023</div>
     </div>
     <div class="stat">
       <div class="stat-num">0</div>
-      <div class="stat-label">Searchable records<br>in a paper binder</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Of US repro vets<br>still paper-based</div>
+      <div class="stat-label">Purpose-built tools for<br>equine embryo transfer</div>
+      <div class="stat-source">Competitive research, 2026</div>
     </div>
   </div>
 
-  <!-- PAIN POINTS -->
-  <section class="section" id="problem">
-    <div class="section-eyebrow">The problem</div>
-    <h2>Repro vets run one of the most data-intensive practices in veterinary medicine — on paper.</h2>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-        </svg>
-        <h3>Protocols live in notebooks</h3>
-        <p>Step-by-step flush protocols tracked by hand. One missed injection can cost a full cycle. There's no system catching it.</p>
+  <!-- PROBLEM / SOLUTION -->
+  <section class="ps-section">
+    <div class="ps-grid">
+
+      <div class="ps-block">
+        <div class="ps-label">The status quo</div>
+        <h2>Million-dollar workflows managed on paper.</h2>
+        <p>You manage 20 to 40 mares across multiple ranches, on paper binders and Excel. One missed Lutalyse injection resets a $2,000 cycle. Embryo grades get scribbled on sticky notes.</p>
+        <p>When a client calls asking about their frozen inventory, you're digging through a drawer.</p>
+        <div class="ps-image">
+          <img src="problem-paperwork.jpg" alt="Veterinary staff managing records with paper at a barn workstation" loading="lazy" />
+        </div>
       </div>
-      <div class="pain-card">
-        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-        </svg>
-        <h3>Flush outcomes never get analyzed</h3>
-        <p>Embryo grades, recipients, sire data — recorded on paper and never seen again. No way to spot what's working across mares.</p>
+
+      <div class="ps-block">
+        <div class="ps-label">How Ovum fixes this</div>
+        <h2>Every mare, every protocol, one screen.</h2>
+        <p>Open the app at 6 AM. See every task sorted by priority, overdue first, grouped by ranch. Log a flush with IETS grading in 30 seconds.</p>
+        <p>Works offline in every dead-zone barn. No more paperwork at the end of the day.</p>
+        <div class="ps-image">
+          <img src="solution-lab.jpg" alt="Embryo imaging microscope and clinical equipment" loading="lazy" />
+        </div>
       </div>
-      <div class="pain-card">
-        <svg class="pain-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-        </svg>
-        <h3>Every ranch is a different binder</h3>
-        <p>Switching between clients means juggling stacks of paper. Nothing is searchable. Nothing is shared. Records get lost.</p>
-      </div>
+
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="hiw-section" id="how-it-works">
-    <div class="hiw-inner">
-      <div class="section-eyebrow">How it works</div>
-      <h2>From the barn to a complete record in under a minute.</h2>
+  <!-- WHO IT'S FOR -->
+  <section class="who-section">
+    <div class="who-inner">
+      <div class="section-eyebrow">Who it's for</div>
+      <h2>If you do embryo transfers, this is for you.</h2>
+      <div class="who-cards">
 
-      <div class="hiw-steps">
-
-        <div class="hiw-step">
-          <div class="hiw-step-icon">
+        <div class="who-card">
+          <div class="who-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
             </svg>
           </div>
-          <div class="hiw-step-label">Step 01</div>
-          <h3>Assign the protocol</h3>
-          <p>Pick the protocol — Ovsynch, 7-day CIDR, or custom — and Ovum generates every injection date automatically.</p>
-          <div class="hiw-step-features">
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Auto-dates:</strong> GnRH Day 0, Lutalyse Day 7.5, CIDR pull — calculated from one start date</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>20–40 mares at once:</strong> staggered schedules across multiple ranches, all in one view</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Shift any date</strong> and downstream steps recalculate automatically</span>
-            </div>
-          </div>
+          <h3>Solo ambulatory repro vets</h3>
+          <p>Managing 20 to 50 mares across multiple ranches from your truck. You need today's tasks in your pocket, not in a binder on the seat.</p>
         </div>
 
-        <div class="hiw-step">
-          <div class="hiw-step-icon">
+        <div class="who-card">
+          <div class="who-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
-          <div class="hiw-step-label">Step 02</div>
-          <h3>Log each step as it happens</h3>
-          <p>Today's tasks surface at the top — overdue first. One tap opens a pre-filled form. Injection, ultrasound, flush, preg check. Done in seconds.</p>
-          <div class="hiw-step-features">
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Works offline</strong> — all data saves locally in dead-zone barns, syncs when you're back on WiFi</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>IETS embryo grading</strong> in 2 taps — Stage + Quality linked instantly to donor, stallion, and flush date</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Drug log auto-updated</strong> — one-tap injection entry keeps DEA records current</span>
-            </div>
-          </div>
+          <h3>Multi-vet repro practices</h3>
+          <p>Shared cryobank inventory across staff. When your senior tech is out, anyone can pull up a client's embryo count in 10 seconds.</p>
         </div>
 
-        <div class="hiw-step">
-          <div class="hiw-step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-            </svg>
-          </div>
-          <div class="hiw-step-label">Step 03</div>
-          <h3>Every record, searchable forever</h3>
-          <p>Embryo grades, sire data, recipient mares, outcomes — all structured and searchable. Spot patterns across mares. No binder, no lost notes.</p>
-          <div class="hiw-step-features">
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Cryobank ledger:</strong> every frozen embryo tracked by tank / canister / goblet / straw position</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Preg checks auto-scheduled</strong> — Day 14 and Day 25 added to your calendar the moment a transfer is logged</span>
-            </div>
-            <div class="hiw-feature-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Season analytics:</strong> flush success rates, pregnancy rates, and embryo inventory — per ranch</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- FEATURE STRIP -->
-      <div class="feature-strip">
-
-        <div class="feature-tile">
-          <div class="feature-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16"/><path d="M16 6v16"/>
-            </svg>
-          </div>
-          <h4>Offline-Ready</h4>
-          <p>Works with zero cell signal. Every barn, every dead zone. Data syncs when you're back on WiFi.</p>
-        </div>
-
-        <div class="feature-tile">
-          <div class="feature-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <h4>Protocol Scheduler</h4>
-          <p>One start date generates the full Ovsynch or CIDR timeline. Shift any step and dates recalculate instantly.</p>
-        </div>
-
-        <div class="feature-tile">
-          <div class="feature-tile-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/>
-            </svg>
-          </div>
-          <h4>IETS Embryo Grading</h4>
-          <p>Grade Stage and Quality in 2 taps at the microscope. Auto-linked to donor, stallion, and flush record.</p>
-        </div>
-
-        <div class="feature-tile">
-          <div class="feature-tile-icon">
+        <div class="who-card">
+          <div class="who-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
             </svg>
           </div>
-          <h4>Cryobank Ledger</h4>
-          <p>Every frozen embryo tracked by exact tank position. Searchable by donor, stallion, grade, or freeze date.</p>
+          <h3>Anyone tracking frozen embryos</h3>
+          <p>If you've ever spent a Sunday reconstructing your cryobank ledger from a spreadsheet, you know why this exists.</p>
         </div>
 
       </div>
-
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section" id="cta">
-    <h2>Built for repro vets, by people who've been in the barn.</h2>
-    <p>We're talking to vets before we build the full version. If you do embryo transfers, we want 15 minutes of your time.</p>
-    <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-green">Request Early Access →</a>
-    <div class="cta-note">No spam. No pitch. Just a conversation.</div>
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-content">
+      <h2>Join the vets shaping equine repro.</h2>
+      <p>We're onboarding a small group of reproduction vets this summer. Free during early access.</p>
+      <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-cta">Request Early Access</a>
+      <div class="cta-note">No spam. No pitch. Just a conversation.</div>
+      <div class="cta-credibility">Built at Carnegie Mellon University &middot; AI Venture Studio</div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">Ovum</div>
-    <div class="footer-text">© 2026 Ovum. All rights reserved.</div>
+    <div class="footer-text">&copy; 2026 Ovum. All rights reserved.</div>
   </footer>
 
 </body>
