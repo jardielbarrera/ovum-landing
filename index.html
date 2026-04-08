@@ -4,8 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ovum — Equine Reproduction, Off Paper</title>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Ovum — Equine Reproduction, Off Paper" />
+  <meta property="og:description" content="The mobile app that replaces the binder. Protocol tracking, flush records, and embryo grading from your phone." />
+  <meta property="og:image" content="https://tryovum.vercel.app/hero-mares.png" />
+  <meta property="og:url" content="https://tryovum.vercel.app" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ovum — Equine Reproduction, Off Paper" />
+  <meta name="twitter:description" content="The mobile app that replaces the binder. Protocol tracking, flush records, and embryo grading from your phone." />
+  <meta name="twitter:image" content="https://tryovum.vercel.app/hero-mares.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('YOUR_POSTHOG_KEY', {api_host:'https://app.posthog.com'})
+  </script>
+
   <style>
     /*
       OVUM LANDING PAGE v2
@@ -139,7 +158,28 @@
       color: rgba(255,255,255,0.7);
       line-height: 1.6;
       max-width: 480px;
-      margin-bottom: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-institution {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.3px;
+    }
+
+    .hero-institution-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
     }
 
     .hero-cta {
@@ -274,9 +314,40 @@
       .ps-grid { grid-template-columns: 1fr; gap: 48px; }
     }
 
+    /* ── INLINE QUOTE ── */
+    .inline-quote { background: #e8e3db; padding: 48px 5%; }
+    .inline-quote-inner { max-width: 800px; margin: 0 auto; display: flex; gap: 24px; align-items: stretch; }
+    .inline-quote-bar { width: 3px; background: #40916c; border-radius: 2px; flex-shrink: 0; }
+    .inline-quote-text { font-size: clamp(17px, 2vw, 21px); font-weight: 500; color: #111827; line-height: 1.55; margin-bottom: 12px; font-style: italic; }
+    .inline-quote-attr { font-size: 13px; color: #6b7280; }
+    .inline-quote-attr strong { color: #111827; font-weight: 600; font-style: normal; }
+
+    /* ── PRODUCT SECTION ── */
+    .product-section { background: #1b4332; padding: 96px 5%; overflow: hidden; }
+    .product-inner { max-width: 1100px; margin: 0 auto; }
+    .product-header { text-align: center; margin-bottom: 64px; }
+    .product-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #7ec8a0; margin-bottom: 16px; }
+    .product-heading { font-size: clamp(26px, 3.5vw, 40px); font-weight: 600; color: #ffffff; letter-spacing: -0.8px; line-height: 1.2; text-wrap: balance; }
+    .product-sub { margin-top: 12px; font-size: 16px; color: rgba(255,255,255,0.5); max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .phone-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: end; }
+    .phone-card { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .phone-frame { width: 100%; max-width: 260px; margin: 0 auto; }
+    .phone-frame-inner { border-radius: 36px; overflow: hidden; border: 3px solid rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 24px 64px rgba(0,0,0,0.5); background: #1a1a1a; }
+    .phone-frame-inner img { width: 100%; display: block; border-radius: 33px; }
+    .phone-card.featured { transform: translateY(-16px); }
+    .phone-card.featured .phone-frame-inner { border-color: rgba(126,200,160,0.3); box-shadow: 0 0 0 1px rgba(126,200,160,0.15), 0 32px 80px rgba(0,0,0,0.6); }
+    .phone-label { text-align: center; }
+    .phone-label-title { font-size: 14px; font-weight: 600; color: #ffffff; margin-bottom: 4px; }
+    .phone-label-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    @media (max-width: 768px) {
+      .phone-row { grid-template-columns: 1fr; gap: 48px; align-items: center; }
+      .phone-card.featured { transform: none; }
+      .phone-frame { max-width: 320px; }
+    }
+
     /* ── WHO IT'S FOR ── */
     .who-section {
-      background: var(--forest);
+      background: var(--parchment);
       padding: 96px 5%;
     }
 
@@ -291,14 +362,14 @@
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--mint);
+      color: var(--meadow);
       margin-bottom: 20px;
     }
 
     .who-section h2 {
       font-size: clamp(26px, 3.5vw, 40px);
       font-weight: 600;
-      color: var(--white);
+      color: var(--ink);
       letter-spacing: -0.8px;
       line-height: 1.2;
       margin-bottom: 56px;
@@ -316,26 +387,37 @@
 
     .who-card {
       padding: 28px 0;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid var(--sand);
     }
 
     .who-card:last-child {
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom: 1px solid var(--sand);
     }
 
     .who-card h3 {
       font-size: 18px;
       font-weight: 600;
-      color: var(--white);
+      color: var(--ink);
       margin-bottom: 8px;
       line-height: 1.3;
     }
 
     .who-card p {
       font-size: 15px;
-      color: rgba(255,255,255,0.55);
+      color: var(--stone);
       line-height: 1.65;
     }
+
+    /* ── QUOTES ── */
+    .quotes-section { background: #1b4332; padding: 80px 5%; }
+    .quotes-inner { max-width: 1100px; margin: 0 auto; }
+    .quotes-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #7ec8a0; margin-bottom: 40px; text-align: center; }
+    .quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .quote-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .quote-card-text { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.65; font-style: italic; flex: 1; }
+    .quote-card-attr { font-size: 12px; color: rgba(255,255,255,0.35); padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .quote-card-attr strong { color: rgba(255,255,255,0.6); font-weight: 600; font-style: normal; }
+    @media (max-width: 768px) { .quotes-grid { grid-template-columns: 1fr; } }
 
     /* ── CTA ── */
     .cta-section {
@@ -378,6 +460,12 @@
       margin-bottom: 36px;
       line-height: 1.6;
     }
+
+    .cta-quote { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; text-align: left; }
+    .cta-quote-text { font-size: 15px; font-style: italic; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 10px; }
+    .cta-quote-attr { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .cta-quote-attr strong { color: rgba(255,255,255,0.55); font-weight: 600; font-style: normal; }
+    .cta-traction { display: inline-block; background: rgba(126,200,160,0.15); border: 1px solid rgba(126,200,160,0.3); border-radius: 100px; font-size: 13px; font-weight: 600; color: #7ec8a0; padding: 6px 14px; margin-bottom: 28px; }
 
     .btn-cta {
       background: var(--white);
@@ -460,6 +548,10 @@
       <div class="hero-eyebrow">Built for equine reproduction vets</div>
       <h1>Equine reproduction, off paper.</h1>
       <p class="hero-sub">The mobile app that replaces your binder. Protocol tracking, flush records, and embryo grading from your phone.</p>
+      <div class="hero-institution">
+        <span class="hero-institution-dot"></span>
+        Built at Carnegie Mellon University · AI Venture Studio
+      </div>
       <div class="hero-cta">
         <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-primary">Request Early Access</a>
         <span class="hero-note">Free during early access. No credit card required.</span>
@@ -475,14 +567,14 @@
       <div class="stat-source">Billings Livestock, 2024</div>
     </div>
     <div class="stat">
-      <div class="stat-num">55.9%</div>
+      <div class="stat-num">60%</div>
       <div class="stat-label">Of equine vets cite usability<br>as top software barrier</div>
       <div class="stat-source">PubMed, 2023</div>
     </div>
     <div class="stat">
       <div class="stat-num">0</div>
       <div class="stat-label">Purpose-built tools for<br>equine embryo transfer</div>
-      <div class="stat-source">Competitive research, 2026</div>
+      <div class="stat-source">Analysis of 14 livestock & vet software platforms, 2026</div>
     </div>
   </div>
 
@@ -513,6 +605,63 @@
     </div>
   </section>
 
+  <!-- INLINE QUOTE -->
+  <div class="inline-quote">
+    <div class="inline-quote-inner">
+      <div class="inline-quote-bar"></div>
+      <div>
+        <p class="inline-quote-text">"People think it's just so simple, and it is not that simple."</p>
+        <p class="inline-quote-attr"><strong>Kim</strong> · Repro vet · 2,500-mare operation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT SECTION -->
+  <section class="product-section">
+    <div class="product-inner">
+      <div class="product-header">
+        <div class="product-eyebrow">The product</div>
+        <h2 class="product-heading">Built for the truck, the barn, and the lab.</h2>
+        <p class="product-sub">Every screen designed for one hand, offline, at 6 AM.</p>
+      </div>
+      <div class="phone-row">
+        <div class="phone-card">
+          <div class="phone-frame">
+            <div class="phone-frame-inner">
+              <img src="app-dashboard.png" alt="Ovum home screen showing today's tasks grouped by ranch" loading="lazy" />
+            </div>
+          </div>
+          <div class="phone-label">
+            <div class="phone-label-title">Today's tasks</div>
+            <div class="phone-label-desc">Every mare, every ranch,<br>sorted by priority</div>
+          </div>
+        </div>
+        <div class="phone-card featured">
+          <div class="phone-frame">
+            <div class="phone-frame-inner">
+              <img src="app-protocol.png" alt="Protocol timeline for Miss Dual Pep with CIDR day tracking" loading="lazy" />
+            </div>
+          </div>
+          <div class="phone-label">
+            <div class="phone-label-title">Protocol timeline</div>
+            <div class="phone-label-desc">Day-by-day tracking with<br>overdue alerts built in</div>
+          </div>
+        </div>
+        <div class="phone-card">
+          <div class="phone-frame">
+            <div class="phone-frame-inner">
+              <img src="app-log.png" alt="Log record form with flush, ultrasound, injection, preg check options" loading="lazy" />
+            </div>
+          </div>
+          <div class="phone-label">
+            <div class="phone-label-title">Log in 30 seconds</div>
+            <div class="phone-label-desc">Flush records, injections,<br>preg checks — no typing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHO IT'S FOR -->
   <section class="who-section">
     <div class="who-inner">
@@ -539,11 +688,37 @@
     </div>
   </section>
 
+  <!-- QUOTES -->
+  <section class="quotes-section">
+    <div class="quotes-inner">
+      <div class="quotes-eyebrow">From the field</div>
+      <div class="quotes-grid">
+        <div class="quote-card">
+          <p class="quote-card-text">"When I get there in the mornings, I make all my lists for each pin. It takes a while."</p>
+          <p class="quote-card-attr"><strong>Kim</strong> · Repro vet · 2,500-mare operation</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-card-text">"We're trying to control every aspect that we can from start to finish. It just goes back to what controllables can we control in this breeding game."</p>
+          <p class="quote-card-attr"><strong>Kim</strong> · Repro vet · 2,500-mare operation</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-card-text">"We have these little things that maybe help increase our rates by 1%... next thing we're up 5%."</p>
+          <p class="quote-card-attr"><strong>Kim</strong> · Repro vet · 2,500-mare operation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="cta-content">
       <h2>Join the vets shaping equine repro.</h2>
+      <div class="cta-quote">
+        <p class="cta-quote-text">"Our late-term slip rate has been hardly nothing this last year because of progesterone tracking. I think that's made that big of a difference."</p>
+        <p class="cta-quote-attr"><strong>Kim</strong> · Solo Select · 2,500-mare operation</p>
+      </div>
+      <div class="cta-traction">Piloting with 5 equine reproduction practices this summer</div>
       <p>We're onboarding a small group of reproduction vets this summer. Free during early access.</p>
       <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-cta">Request Early Access</a>
       <div class="cta-note">No spam. No pitch. Just a conversation.</div>
