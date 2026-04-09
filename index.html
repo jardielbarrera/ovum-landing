@@ -210,7 +210,7 @@
 
     .stat {
       text-align: center;
-      padding: 48px 16px;
+      padding: 56px 24px;
       border-right: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -227,7 +227,7 @@
     }
 
     .stat-label {
-      font-size: 13px;
+      font-size: 14px;
       color: rgba(255,255,255,0.5);
       line-height: 1.5;
     }
@@ -299,6 +299,7 @@
       line-height: 1.6;
       padding-left: 20px;
       position: relative;
+      text-align: justify;
     }
     .ps-list li::before {
       content: '';
@@ -384,15 +385,16 @@
     .hiw-step--reverse { direction: rtl; }
     .hiw-step--reverse > * { direction: ltr; }
     .hiw-step-num {
-      font-size: 11px;
+      font-size: 48px;
       font-weight: 700;
       color: var(--meadow);
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      letter-spacing: -1px;
+      line-height: 1;
       margin-bottom: 16px;
+      opacity: 0.35;
     }
     .hiw-step-title {
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(26px, 3vw, 38px);
       font-weight: 600;
       color: var(--ink);
       letter-spacing: -0.5px;
@@ -403,6 +405,7 @@
       font-size: 17px;
       color: var(--stone);
       line-height: 1.8;
+      text-align: justify;
     }
     .hiw-visual {
       display: flex;
@@ -472,7 +475,7 @@
       color: var(--white);
       letter-spacing: -1px;
       line-height: 1.1;
-      margin-bottom: 72px;
+      margin-bottom: 80px;
       text-wrap: balance;
       text-align: center;
     }
@@ -487,7 +490,7 @@
     }
     .who-card {
       background: rgba(255,255,255,0.03);
-      padding: 40px 36px;
+      padding: 56px 48px;
       border: none;
       transition: background 0.2s;
     }
@@ -495,16 +498,17 @@
       background: rgba(255,255,255,0.07);
     }
     .who-card h3 {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       line-height: 1.3;
     }
     .who-card p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.7;
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      text-align: justify;
     }
     @media (max-width: 768px) {
       .who-cards { grid-template-columns: 1fr; }
@@ -538,17 +542,18 @@
       color: var(--ink);
       line-height: 1.7;
       flex: 1;
+      text-align: justify;
     }
-    .proof-quote-attr {
-      font-size: 13px;
+    .proof-single-attr {
+      text-align: center;
+      font-size: 14px;
       color: var(--stone);
-      padding-top: 16px;
-      border-top: 1px solid var(--sand);
+      margin-top: -48px;
+      margin-bottom: 56px;
     }
-    .proof-quote-attr strong {
+    .proof-single-attr strong {
       color: var(--ink);
       font-weight: 600;
-      font-style: normal;
     }
     .proof-divider {
       height: 1px;
@@ -568,17 +573,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px;
+      gap: 40px;
       flex-wrap: wrap;
     }
     .proof-logo-item {
-      opacity: 0.75;
+      opacity: 0.65;
       transition: opacity 0.2s;
+      display: flex;
+      align-items: center;
     }
     .proof-logo-item:hover { opacity: 1; }
+    .proof-logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
     .proof-logo-sep-line {
       width: 1px;
-      height: 32px;
+      height: 48px;
       background: var(--sand);
     }
     @media (max-width: 640px) {
@@ -873,13 +886,16 @@
       <div class="proof-quotes">
         <div class="proof-quote-card">
           <p class="proof-quote-text">"We have these little things that maybe help increase our rates by 1%... next thing we're up 5%."</p>
-          <p class="proof-quote-attr"><strong>Senior reproduction veterinarian</strong> · 2,500-mare breeding program</p>
         </div>
         <div class="proof-quote-card">
           <p class="proof-quote-text">"Our late-term slip rate has been hardly nothing this last year because of progesterone tracking. I think that's made that big of a difference."</p>
-          <p class="proof-quote-attr"><strong>Senior reproduction veterinarian</strong> · 2,500-mare breeding program</p>
         </div>
       </div>
+
+      <p class="proof-single-attr">
+        <strong>Senior reproduction veterinarian</strong>
+        · 2,500-mare breeding program
+      </p>
 
       <div class="proof-divider"></div>
 
@@ -888,57 +904,25 @@
         <div class="proof-logo-row">
 
           <div class="proof-logo-item">
-            <svg width="120" height="32" viewBox="0 0 120 32"
-                 fill="none" xmlns="http://www.w3.org/2000/svg"
-                 aria-label="Carnegie Mellon University">
-              <rect width="32" height="32" rx="4" fill="#C41230"/>
-              <text x="16" y="21" font-family="serif"
-                    font-size="16" font-weight="700"
-                    fill="white" text-anchor="middle">CM</text>
-              <text x="44" y="12" font-family="sans-serif"
-                    font-size="7.5" font-weight="600"
-                    fill="#111827" letter-spacing="0.3">CARNEGIE MELLON</text>
-              <text x="44" y="24" font-family="sans-serif"
-                    font-size="7.5" font-weight="400"
-                    fill="#6b7280" letter-spacing="0.3">UNIVERSITY</text>
-            </svg>
+            <img src="logo-cmu.png"
+                 alt="Carnegie Mellon University"
+                 class="proof-logo-img" />
           </div>
 
           <div class="proof-logo-sep-line"></div>
 
           <div class="proof-logo-item">
-            <svg width="140" height="32" viewBox="0 0 140 32"
-                 fill="none" xmlns="http://www.w3.org/2000/svg"
-                 aria-label="Swartz Center for Entrepreneurship">
-              <rect width="32" height="32" rx="4" fill="#1b4332"/>
-              <text x="16" y="21" font-family="sans-serif"
-                    font-size="13" font-weight="700"
-                    fill="white" text-anchor="middle">SC</text>
-              <text x="44" y="12" font-family="sans-serif"
-                    font-size="7.5" font-weight="600"
-                    fill="#111827" letter-spacing="0.3">SWARTZ CENTER</text>
-              <text x="44" y="24" font-family="sans-serif"
-                    font-size="7.5" font-weight="400"
-                    fill="#6b7280" letter-spacing="0.3">FOR ENTREPRENEURSHIP</text>
-            </svg>
+            <img src="logo-swartz.png"
+                 alt="Swartz Center for Entrepreneurship"
+                 class="proof-logo-img" />
           </div>
 
           <div class="proof-logo-sep-line"></div>
 
           <div class="proof-logo-item">
-            <svg width="130" height="32" viewBox="0 0 130 32"
-                 fill="none" xmlns="http://www.w3.org/2000/svg"
-                 aria-label="Project Olympus">
-              <rect width="32" height="32" rx="4" fill="#E8A020"/>
-              <text x="16" y="22" font-family="sans-serif"
-                    font-size="18" text-anchor="middle">🔥</text>
-              <text x="44" y="12" font-family="sans-serif"
-                    font-size="7.5" font-weight="600"
-                    fill="#111827" letter-spacing="0.3">PROJECT OLYMPUS</text>
-              <text x="44" y="24" font-family="sans-serif"
-                    font-size="7.5" font-weight="400"
-                    fill="#6b7280" letter-spacing="0.3">CMU INCUBATOR</text>
-            </svg>
+            <img src="logo-olympus.png"
+                 alt="Project Olympus"
+                 class="proof-logo-img" />
           </div>
 
         </div>
