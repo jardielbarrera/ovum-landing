@@ -8,13 +8,13 @@
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Ovum — Equine Reproduction, Off Paper" />
   <meta property="og:description" content="The mobile app that replaces the binder. Protocol tracking, flush records, and embryo grading from your phone." />
-  <meta property="og:image" content="https://tryovum.vercel.app/hero-mares.png" />
+  <meta property="og:image" content="https://tryovum.vercel.app/hero.png" />
   <meta property="og:url" content="https://tryovum.vercel.app" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ovum — Equine Reproduction, Off Paper" />
   <meta name="twitter:description" content="The mobile app that replaces the binder. Protocol tracking, flush records, and embryo grading from your phone." />
-  <meta name="twitter:image" content="https://tryovum.vercel.app/hero-mares.png" />
+  <meta name="twitter:image" content="https://tryovum.vercel.app/hero.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
@@ -27,12 +27,21 @@
 
   <style>
     /*
-      OVUM LANDING PAGE v2
+      OVUM LANDING PAGE v3
       Primary: #1b4332 (Forest)
       Accent:  #40916c (Meadow)
       Background: #f7f4ef (Parchment)
       Text: #111827 (Ink)
       Muted: #6b7280 (Stone)
+
+      Section rhythm:
+      - Hero: forest (dark)
+      - Stats: forest (dark)
+      - Problem/Solution: white (light)
+      - How It Works: parchment (light)
+      - Who It's For: forest (dark)
+      - Social Proof: parchment (light)
+      - CTA: forest (dark)
     */
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -120,7 +129,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('hero-mares.png');
+      background-image: url('hero.png');
       background-size: cover;
       background-position: center 60%;
       filter: brightness(0.32);
@@ -238,17 +247,26 @@
     /* ── PROBLEM / SOLUTION ── */
     .ps-section {
       padding: 96px 5%;
+      background: var(--white);
     }
-
-    .ps-grid {
+    .ps-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1fr 40px 1fr;
+      gap: 0;
       align-items: start;
     }
-
+    .ps-divider {
+      width: 1px;
+      background: var(--sand);
+      margin: 0 auto;
+      align-self: stretch;
+      min-height: 400px;
+    }
+    .ps-block { padding: 0 40px; }
+    .ps-block--problem { padding-left: 0; }
+    .ps-block--solution { padding-right: 0; }
     .ps-label {
       font-size: 11px;
       font-weight: 600;
@@ -257,164 +275,274 @@
       color: var(--stone);
       margin-bottom: 20px;
     }
-
+    .ps-label--green { color: var(--meadow); }
     .ps-block h2 {
-      font-size: clamp(26px, 3.5vw, 36px);
+      font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      margin-bottom: 24px;
+      color: var(--ink);
       text-wrap: balance;
     }
-
-    .ps-block p {
+    .ps-block--solution h2 { color: var(--forest); }
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .ps-list li {
       font-size: 16px;
       color: var(--stone);
-      line-height: 1.7;
-      margin-bottom: 12px;
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
     }
-
-    .ps-block p:last-of-type { margin-bottom: 0; }
-
+    .ps-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sand);
+    }
+    .ps-block--solution .ps-list li::before {
+      background: var(--meadow);
+    }
     .ps-image {
       border-radius: 12px;
-      margin-top: 24px;
       overflow: hidden;
       border: 1px solid var(--sand);
     }
-
     .ps-image img {
       width: 100%;
       object-fit: cover;
       aspect-ratio: 16 / 10;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .ps-inner {
+        grid-template-columns: 1fr;
+      }
+      .ps-divider {
+        width: 100%;
+        height: 1px;
+        min-height: 0;
+        margin: 48px 0;
+      }
+      .ps-block { padding: 0; }
     }
 
-    @media (max-width: 768px) {
-      .ps-grid { grid-template-columns: 1fr; gap: 48px; }
+    /* ── HOW IT WORKS ── */
+    .hiw-section {
+      background: var(--parchment);
+      padding: 112px 5%;
+      border-top: 1px solid var(--sand);
     }
-
-    /* ── PRODUCT SECTION ── */
-    .product-section { background: #1b4332; padding: 96px 5%; overflow: hidden; }
-    .product-inner { max-width: 1100px; margin: 0 auto; }
-    .product-header { text-align: center; margin-bottom: 64px; }
-    .product-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #7ec8a0; margin-bottom: 16px; }
-    .product-heading { font-size: clamp(26px, 3.5vw, 40px); font-weight: 600; color: #ffffff; letter-spacing: -0.8px; line-height: 1.2; text-wrap: balance; }
-    .product-sub { margin-top: 12px; font-size: 16px; color: rgba(255,255,255,0.5); max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-    .phone-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: end; }
-    .phone-card { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .phone-frame { width: 100%; max-width: 260px; margin: 0 auto; }
-    .phone-frame-inner { border-radius: 36px; overflow: hidden; border: 3px solid rgba(255,255,255,0.12); box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 24px 64px rgba(0,0,0,0.5); background: #1a1a1a; }
-    .phone-frame-inner img { width: 100%; display: block; border-radius: 33px; }
-    .phone-card.featured { transform: translateY(-16px); }
-    .phone-card.featured .phone-frame-inner { border-color: rgba(126,200,160,0.3); box-shadow: 0 0 0 1px rgba(126,200,160,0.15), 0 32px 80px rgba(0,0,0,0.6); }
-    .phone-label { text-align: center; }
-    .phone-label-title { font-size: 14px; font-weight: 600; color: #ffffff; margin-bottom: 4px; }
-    .phone-label-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+    .hiw-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .hiw-header {
+      text-align: center;
+      margin-bottom: 96px;
+    }
+    .hiw-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 16px;
+    }
+    .hiw-heading {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+    .hiw-subhead {
+      font-size: 18px;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+    .hiw-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+      border-top: 1px solid var(--sand);
+    }
+    .hiw-step--reverse { direction: rtl; }
+    .hiw-step--reverse > * { direction: ltr; }
+    .hiw-step-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--meadow);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hiw-step-title {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hiw-step-desc {
+      font-size: 17px;
+      color: var(--stone);
+      line-height: 1.8;
+    }
+    .hiw-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hiw-phone {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 44px;
+      overflow: hidden;
+      border: 2px solid var(--sand);
+      box-shadow:
+        0 0 0 6px var(--white),
+        0 0 0 7px var(--sand),
+        0 20px 60px rgba(0,0,0,0.1),
+        0 4px 12px rgba(0,0,0,0.06);
+      background: var(--parchment);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .hiw-phone:hover {
+      transform: scale(1.04) translateY(-6px);
+      box-shadow:
+        0 0 0 6px var(--white),
+        0 0 0 7px var(--sand),
+        0 32px 80px rgba(0,0,0,0.15),
+        0 8px 24px rgba(0,0,0,0.08);
+    }
+    .hiw-phone img {
+      width: 100%;
+      display: block;
+      border-radius: 40px;
+    }
     @media (max-width: 768px) {
-      .phone-row { grid-template-columns: 1fr; gap: 48px; align-items: center; }
-      .phone-card.featured { transform: none; }
-      .phone-frame { max-width: 320px; }
+      .hiw-step {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 56px 0;
+      }
+      .hiw-step--reverse { direction: ltr; }
+      .hiw-visual { order: -1; }
+      .hiw-phone { max-width: 300px; margin: 0 auto; }
     }
 
     /* ── WHO IT'S FOR ── */
     .who-section {
-      background: var(--parchment);
-      padding: 96px 5%;
+      background: var(--forest);
+      padding: 112px 5%;
     }
-
     .who-inner {
-      max-width: 900px;
+      max-width: 1080px;
       margin: 0 auto;
-      text-align: center;
     }
-
     .who-section .section-eyebrow {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: var(--meadow);
+      color: var(--mint);
       margin-bottom: 20px;
+      text-align: center;
     }
-
     .who-section h2 {
-      font-size: clamp(26px, 3.5vw, 40px);
+      font-size: clamp(32px, 4vw, 52px);
       font-weight: 600;
-      color: var(--ink);
-      letter-spacing: -0.8px;
-      line-height: 1.2;
-      margin-bottom: 56px;
+      color: var(--white);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 72px;
       text-wrap: balance;
+      text-align: center;
     }
-
     .who-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      text-align: left;
-      max-width: 600px;
-      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
     }
-
     .who-card {
-      padding: 28px 0;
-      border-top: 1px solid var(--sand);
+      background: rgba(255,255,255,0.03);
+      padding: 40px 36px;
+      border: none;
+      transition: background 0.2s;
     }
-
-    .who-card:last-child {
-      border-bottom: 1px solid var(--sand);
+    .who-card:hover {
+      background: rgba(255,255,255,0.07);
     }
-
     .who-card h3 {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 8px;
+      color: var(--white);
+      margin-bottom: 12px;
       line-height: 1.3;
     }
-
     .who-card p {
       font-size: 15px;
-      color: var(--stone);
-      line-height: 1.65;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .who-cards { grid-template-columns: 1fr; }
     }
 
     /* ── SOCIAL PROOF ── */
     .proof-section {
       background: var(--parchment);
-      padding: 80px 5%;
+      padding: 96px 5%;
       border-top: 1px solid var(--sand);
     }
-    .proof-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    .proof-inner { max-width: 1080px; margin: 0 auto; }
     .proof-quotes {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-bottom: 56px;
+      gap: 24px;
+      margin-bottom: 72px;
     }
     .proof-quote-card {
       background: var(--white);
       border: 1px solid var(--sand);
-      border-radius: 16px;
-      padding: 28px 24px;
+      border-radius: 20px;
+      padding: 36px 32px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
     .proof-quote-text {
-      font-size: 16px;
+      font-size: 18px;
       font-style: italic;
       color: var(--ink);
-      line-height: 1.65;
+      line-height: 1.7;
       flex: 1;
     }
     .proof-quote-attr {
       font-size: 13px;
       color: var(--stone);
-      padding-top: 12px;
+      padding-top: 16px;
       border-top: 1px solid var(--sand);
     }
     .proof-quote-attr strong {
@@ -425,42 +553,38 @@
     .proof-divider {
       height: 1px;
       background: var(--sand);
-      margin-bottom: 40px;
+      margin-bottom: 56px;
     }
-    .proof-institutions {
-      text-align: center;
-    }
+    .proof-institutions { text-align: center; }
     .proof-institutions-label {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--stone);
-      margin-bottom: 16px;
+      margin-bottom: 32px;
     }
-    .proof-logos {
+    .proof-logo-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 32px;
       flex-wrap: wrap;
     }
-    .proof-logo {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--ink);
-      opacity: 0.5;
-      letter-spacing: -0.2px;
+    .proof-logo-item {
+      opacity: 0.75;
+      transition: opacity 0.2s;
     }
-    .proof-logo-sep {
-      color: var(--stone);
-      opacity: 0.4;
-      font-size: 18px;
+    .proof-logo-item:hover { opacity: 1; }
+    .proof-logo-sep-line {
+      width: 1px;
+      height: 32px;
+      background: var(--sand);
     }
     @media (max-width: 640px) {
       .proof-quotes { grid-template-columns: 1fr; }
-      .proof-logos { flex-direction: column; gap: 8px; }
-      .proof-logo-sep { display: none; }
+      .proof-logo-row { gap: 24px; }
+      .proof-logo-sep-line { display: none; }
     }
 
     /* ── CTA ── */
@@ -493,7 +617,7 @@
       font-weight: 600;
       letter-spacing: -0.8px;
       color: var(--white);
-      margin-bottom: 16px;
+      margin-bottom: 24px;
       line-height: 1.2;
       text-wrap: balance;
     }
@@ -505,7 +629,18 @@
       line-height: 1.6;
     }
 
-    .cta-traction { display: inline-block; background: rgba(126,200,160,0.15); border: 1px solid rgba(126,200,160,0.3); border-radius: 100px; font-size: 13px; font-weight: 600; color: #7ec8a0; padding: 6px 14px; margin-bottom: 28px; }
+    .cta-traction {
+      display: block;
+      background: rgba(126,200,160,0.15);
+      border: 1px solid rgba(126,200,160,0.3);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #7ec8a0;
+      padding: 6px 14px;
+      margin-bottom: 24px;
+      margin-top: 8px;
+    }
 
     .btn-cta {
       background: var(--white);
@@ -535,6 +670,8 @@
     @media (prefers-reduced-motion: reduce) {
       .btn-nav, .btn-primary, .btn-cta { transition: none; }
       .btn-primary:hover, .btn-cta:hover { transform: none; }
+      .hiw-phone { transition: none; }
+      .hiw-phone:hover { transform: none; }
     }
 
     /* ── FOOTER ── */
@@ -588,92 +725,118 @@
   <!-- STATS -->
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">$175K+</div>
-      <div class="stat-label">Single embryo sale<br>at auction</div>
-      <div class="stat-source">Billings Livestock, 2024</div>
+      <div class="stat-num">$648M</div>
+      <div class="stat-label">US equine reproduction<br>market</div>
+      <div class="stat-source">AAEP Market Analysis, 2024</div>
     </div>
     <div class="stat">
-      <div class="stat-num">60%</div>
-      <div class="stat-label">Of equine vets cite usability<br>as top software barrier</div>
-      <div class="stat-source">PubMed, 2023</div>
+      <div class="stat-num">1 vet</div>
+      <div class="stat-label">serves 20–50 ranches —<br>distribution built in</div>
+      <div class="stat-source">AAEP Practitioner Survey, 2023</div>
     </div>
     <div class="stat">
       <div class="stat-num">0</div>
       <div class="stat-label">Purpose-built tools for<br>equine embryo transfer</div>
-      <div class="stat-source">Analysis of 14 livestock & vet software platforms, 2026</div>
+      <div class="stat-source">Analysis of 14 livestock &amp; vet software platforms, 2026</div>
     </div>
   </div>
 
   <!-- PROBLEM / SOLUTION -->
   <section class="ps-section">
-    <div class="ps-grid">
+    <div class="ps-inner">
 
-      <div class="ps-block">
+      <div class="ps-block ps-block--problem">
         <div class="ps-label">The status quo</div>
-        <h2>Million-dollar workflows managed on paper.</h2>
-        <p>You manage 20 to 40 mares across multiple ranches, on paper binders and Excel. One missed Lutalyse injection resets a $2,000 cycle. Embryo grades get scribbled on sticky notes.</p>
-        <p>When a client calls asking about their frozen inventory, you're digging through a drawer.</p>
+        <h2>Million-dollar workflows.<br>Paper binders.</h2>
+        <ul class="ps-list">
+          <li>20–40 mares across multiple ranches, all tracked by hand</li>
+          <li>One missed Lutalyse injection resets a $2,000 cycle</li>
+          <li>Embryo grades scribbled on sticky notes, lost by Friday</li>
+          <li>Client calls about frozen inventory answered from a drawer</li>
+        </ul>
         <div class="ps-image">
-          <img src="problem-paperwork.jpg" alt="Veterinary staff managing records with paper at a barn workstation" loading="lazy" />
+          <img src="problem-paperwork.jpg"
+               alt="Veterinary staff reviewing paper records at a barn workstation"
+               loading="lazy" />
         </div>
       </div>
 
-      <div class="ps-block">
-        <div class="ps-label">How Ovum fixes this</div>
-        <h2>Every mare, every protocol, one screen.</h2>
-        <p>Open the app at 6 AM. See every task sorted by priority, overdue first, grouped by ranch. Log a flush with IETS grading in 30 seconds.</p>
-        <p>Works offline in every dead-zone barn. No more paperwork at the end of the day.</p>
+      <div class="ps-divider"></div>
+
+      <div class="ps-block ps-block--solution">
+        <div class="ps-label ps-label--green">How Ovum fixes this</div>
+        <h2>Every mare. Every protocol.<br>One screen.</h2>
+        <ul class="ps-list">
+          <li>Open the app at 6 AM — tasks sorted by priority, overdue first</li>
+          <li>Log a flush with IETS grading in under 30 seconds</li>
+          <li>Full protocol timeline per mare, synchronized automatically</li>
+          <li>Works offline in every dead-zone barn</li>
+        </ul>
         <div class="ps-image">
-          <img src="solution-lab.jpg" alt="Embryo imaging microscope and clinical equipment" loading="lazy" />
+          <img src="solution-new.jpg"
+               alt="Veterinarian using mobile app in field"
+               loading="lazy" />
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- PRODUCT SECTION -->
-  <section class="product-section">
-    <div class="product-inner">
-      <div class="product-header">
-        <div class="product-eyebrow">The product</div>
-        <h2 class="product-heading">Built for the truck, the barn, and the lab.</h2>
-        <p class="product-sub">Every screen designed for one hand, offline, at 6 AM.</p>
+  <!-- HOW IT WORKS -->
+  <section class="hiw-section">
+    <div class="hiw-inner">
+
+      <div class="hiw-header">
+        <div class="hiw-eyebrow">How it works</div>
+        <h2 class="hiw-heading">Three problems. One platform.</h2>
+        <p class="hiw-subhead">Designed for one hand, offline, at 6 AM.</p>
       </div>
-      <div class="phone-row">
-        <div class="phone-card">
-          <div class="phone-frame">
-            <div class="phone-frame-inner">
-              <img src="app-dashboard.png" alt="Ovum home screen showing today's tasks grouped by ranch" loading="lazy" />
-            </div>
-          </div>
-          <div class="phone-label">
-            <div class="phone-label-title">Today's tasks</div>
-            <div class="phone-label-desc">Every mare, every ranch,<br>sorted by priority</div>
-          </div>
+
+      <div class="hiw-step">
+        <div class="hiw-text">
+          <div class="hiw-step-num">01</div>
+          <h3 class="hiw-step-title">Protocol scheduler</h3>
+          <p class="hiw-step-desc">Set up a synchronization protocol once. Ovum schedules every injection, flush, and preg check automatically across all your mares. Overdue alerts surface first, grouped by ranch — so you walk in knowing exactly what needs to happen.</p>
         </div>
-        <div class="phone-card featured">
-          <div class="phone-frame">
-            <div class="phone-frame-inner">
-              <img src="app-protocol.png" alt="Protocol timeline for Miss Dual Pep with CIDR day tracking" loading="lazy" />
-            </div>
-          </div>
-          <div class="phone-label">
-            <div class="phone-label-title">Protocol timeline</div>
-            <div class="phone-label-desc">Day-by-day tracking with<br>overdue alerts built in</div>
-          </div>
-        </div>
-        <div class="phone-card">
-          <div class="phone-frame">
-            <div class="phone-frame-inner">
-              <img src="app-log.png" alt="Log record form with flush, ultrasound, injection, preg check options" loading="lazy" />
-            </div>
-          </div>
-          <div class="phone-label">
-            <div class="phone-label-title">Log in 30 seconds</div>
-            <div class="phone-label-desc">Flush records, injections,<br>preg checks — no typing</div>
+        <div class="hiw-visual">
+          <div class="hiw-phone">
+            <img src="app-protocol.png"
+                 alt="7-day CIDR protocol timeline showing completed and upcoming steps per mare"
+                 loading="lazy" />
           </div>
         </div>
       </div>
+
+      <div class="hiw-step hiw-step--reverse">
+        <div class="hiw-text">
+          <div class="hiw-step-num">02</div>
+          <h3 class="hiw-step-title">Embryo grading</h3>
+          <p class="hiw-step-desc">Log a flush in the field in under 30 seconds. Select the donor, record embryos recovered, note the sire, and add observations — before you leave the stall. No clipboard. No transcription at the end of the day.</p>
+        </div>
+        <div class="hiw-visual">
+          <div class="hiw-phone">
+            <img src="app-log.png"
+                 alt="Flush log form with embryos recovered, sire, and record type selection"
+                 loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="hiw-step">
+        <div class="hiw-text">
+          <div class="hiw-step-num">03</div>
+          <h3 class="hiw-step-title">Cryobank &amp; inventory</h3>
+          <p class="hiw-step-desc">Every donor and recipient across every ranch, at a glance. Know who's overdue, who flushes today, and pull up a client's frozen embryo count in seconds — not from a drawer, not from a spreadsheet.</p>
+        </div>
+        <div class="hiw-visual">
+          <div class="hiw-phone">
+            <img src="app-dashboard.png"
+                 alt="Dashboard showing all mares grouped by ranch with donor, recipient and status tags"
+                 loading="lazy" />
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -710,11 +873,11 @@
       <div class="proof-quotes">
         <div class="proof-quote-card">
           <p class="proof-quote-text">"We have these little things that maybe help increase our rates by 1%... next thing we're up 5%."</p>
-          <p class="proof-quote-attr"><strong>Kim</strong> · Repro vet · 2,500-mare operation</p>
+          <p class="proof-quote-attr"><strong>Senior reproduction veterinarian</strong> · 2,500-mare breeding program</p>
         </div>
         <div class="proof-quote-card">
           <p class="proof-quote-text">"Our late-term slip rate has been hardly nothing this last year because of progesterone tracking. I think that's made that big of a difference."</p>
-          <p class="proof-quote-attr"><strong>Kim</strong> · Solo Select · 2,500-mare operation</p>
+          <p class="proof-quote-attr"><strong>Senior reproduction veterinarian</strong> · 2,500-mare breeding program</p>
         </div>
       </div>
 
@@ -722,10 +885,62 @@
 
       <div class="proof-institutions">
         <p class="proof-institutions-label">Built with</p>
-        <div class="proof-logos">
-          <span class="proof-logo">Carnegie Mellon University</span>
-          <span class="proof-logo-sep">·</span>
-          <span class="proof-logo">Swartz Center for Entrepreneurship</span>
+        <div class="proof-logo-row">
+
+          <div class="proof-logo-item">
+            <svg width="120" height="32" viewBox="0 0 120 32"
+                 fill="none" xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Carnegie Mellon University">
+              <rect width="32" height="32" rx="4" fill="#C41230"/>
+              <text x="16" y="21" font-family="serif"
+                    font-size="16" font-weight="700"
+                    fill="white" text-anchor="middle">CM</text>
+              <text x="44" y="12" font-family="sans-serif"
+                    font-size="7.5" font-weight="600"
+                    fill="#111827" letter-spacing="0.3">CARNEGIE MELLON</text>
+              <text x="44" y="24" font-family="sans-serif"
+                    font-size="7.5" font-weight="400"
+                    fill="#6b7280" letter-spacing="0.3">UNIVERSITY</text>
+            </svg>
+          </div>
+
+          <div class="proof-logo-sep-line"></div>
+
+          <div class="proof-logo-item">
+            <svg width="140" height="32" viewBox="0 0 140 32"
+                 fill="none" xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Swartz Center for Entrepreneurship">
+              <rect width="32" height="32" rx="4" fill="#1b4332"/>
+              <text x="16" y="21" font-family="sans-serif"
+                    font-size="13" font-weight="700"
+                    fill="white" text-anchor="middle">SC</text>
+              <text x="44" y="12" font-family="sans-serif"
+                    font-size="7.5" font-weight="600"
+                    fill="#111827" letter-spacing="0.3">SWARTZ CENTER</text>
+              <text x="44" y="24" font-family="sans-serif"
+                    font-size="7.5" font-weight="400"
+                    fill="#6b7280" letter-spacing="0.3">FOR ENTREPRENEURSHIP</text>
+            </svg>
+          </div>
+
+          <div class="proof-logo-sep-line"></div>
+
+          <div class="proof-logo-item">
+            <svg width="130" height="32" viewBox="0 0 130 32"
+                 fill="none" xmlns="http://www.w3.org/2000/svg"
+                 aria-label="Project Olympus">
+              <rect width="32" height="32" rx="4" fill="#E8A020"/>
+              <text x="16" y="22" font-family="sans-serif"
+                    font-size="18" text-anchor="middle">🔥</text>
+              <text x="44" y="12" font-family="sans-serif"
+                    font-size="7.5" font-weight="600"
+                    fill="#111827" letter-spacing="0.3">PROJECT OLYMPUS</text>
+              <text x="44" y="24" font-family="sans-serif"
+                    font-size="7.5" font-weight="400"
+                    fill="#6b7280" letter-spacing="0.3">CMU INCUBATOR</text>
+            </svg>
+          </div>
+
         </div>
       </div>
 
