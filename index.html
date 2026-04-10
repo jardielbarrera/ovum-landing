@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ovum — Equine Reproduction, Off Paper</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Ovum — Equine Reproduction, Off Paper" />
@@ -55,6 +59,7 @@
       --ink:      #111827;
       --stone:    #6b7280;
       --sand:     #e8e3db;
+      --max-w:    1200px;
     }
 
     html { scroll-behavior: smooth; }
@@ -64,6 +69,8 @@
       background: var(--parchment);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -123,7 +130,7 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 96px 5% 88px;
+      padding: 120px 5% 120px;
     }
 
     .hero-bg {
@@ -139,7 +146,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 640px;
+      max-width: 700px;
     }
 
     .hero-eyebrow {
@@ -153,21 +160,21 @@
     }
 
     .hero h1 {
-      font-size: clamp(36px, 5.5vw, 64px);
+      font-size: clamp(40px, 6vw, 72px);
       font-weight: 600;
       color: var(--white);
       line-height: 1.08;
       letter-spacing: -1.5px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       text-wrap: balance;
     }
 
     .hero-sub {
-      font-size: clamp(16px, 2vw, 20px);
+      font-size: clamp(17px, 2vw, 22px);
       color: rgba(255,255,255,0.7);
       line-height: 1.6;
-      max-width: 480px;
-      margin-bottom: 32px;
+      max-width: 540px;
+      margin-bottom: 40px;
     }
 
     .hero-cta {
@@ -197,60 +204,66 @@
 
     .hero-note {
       font-size: 13px;
-      color: rgba(255,255,255,0.45);
-    }
-
-    /* ── STATS ── */
-    .stats {
-      background: var(--forest);
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .stat {
-      text-align: center;
-      padding: 56px 24px;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .stat:last-child { border-right: none; }
-
-    .stat-num {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -1.5px;
-      line-height: 1;
-      margin-bottom: 8px;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.5;
-    }
-
-    .stat-source {
-      font-size: 10px;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.4);
       margin-top: 4px;
     }
 
+    /* ── PAIN POINTS ── */
+    .pain-section {
+      background: var(--forest);
+      padding: 0;
+    }
+    .pain-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+    }
+    .pain-card {
+      padding: 56px 44px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+    .pain-card:last-child { border-right: none; }
+    .pain-card:hover { background: rgba(255,255,255,0.04); }
+    .pain-quote {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      letter-spacing: -0.2px;
+    }
+    .pain-body {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+    }
+    @media (max-width: 900px) {
+      .pain-inner { grid-template-columns: repeat(2, 1fr); }
+      .pain-card:nth-child(2) { border-right: none; }
+      .pain-card:nth-child(1),
+      .pain-card:nth-child(2) {
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+    }
     @media (max-width: 560px) {
-      .stats { grid-template-columns: 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 32px 16px; }
-      .stat:last-child { border-bottom: none; }
+      .pain-inner { grid-template-columns: 1fr; }
+      .pain-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+      }
+      .pain-card:last-child { border-bottom: none; }
     }
 
     /* ── PROBLEM / SOLUTION ── */
     .ps-section {
-      padding: 96px 5%;
+      padding: 112px 5%;
       background: var(--white);
     }
     .ps-inner {
-      max-width: 1100px;
+      max-width: var(--max-w);
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 40px 1fr;
@@ -277,11 +290,11 @@
     }
     .ps-label--green { color: var(--meadow); }
     .ps-block h2 {
-      font-size: clamp(28px, 3.5vw, 40px);
+      font-size: clamp(30px, 3.5vw, 44px);
       font-weight: 600;
       line-height: 1.2;
       letter-spacing: -0.8px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       color: var(--ink);
       text-wrap: balance;
     }
@@ -290,13 +303,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-bottom: 32px;
+      gap: 16px;
+      margin-bottom: 36px;
     }
     .ps-list li {
-      font-size: 16px;
+      font-size: 17px;
       color: var(--stone);
-      line-height: 1.6;
+      line-height: 1.7;
       padding-left: 20px;
       position: relative;
       text-align: justify;
@@ -341,16 +354,16 @@
     /* ── HOW IT WORKS ── */
     .hiw-section {
       background: var(--parchment);
-      padding: 112px 5%;
+      padding: 120px 5%;
       border-top: 1px solid var(--sand);
     }
     .hiw-inner {
-      max-width: 1080px;
+      max-width: var(--max-w);
       margin: 0 auto;
     }
     .hiw-header {
       text-align: center;
-      margin-bottom: 96px;
+      margin-bottom: 100px;
     }
     .hiw-eyebrow {
       font-size: 11px;
@@ -361,7 +374,7 @@
       margin-bottom: 16px;
     }
     .hiw-heading {
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(36px, 4.5vw, 58px);
       font-weight: 600;
       color: var(--ink);
       letter-spacing: -1px;
@@ -370,41 +383,43 @@
       text-wrap: balance;
     }
     .hiw-subhead {
-      font-size: 18px;
+      font-size: 19px;
       color: var(--stone);
       line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
     }
     .hiw-step {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 5fr 4fr;
+      gap: 96px;
       align-items: center;
-      padding: 80px 0;
+      padding: 96px 0;
       border-top: 1px solid var(--sand);
     }
     .hiw-step--reverse { direction: rtl; }
     .hiw-step--reverse > * { direction: ltr; }
     .hiw-step-num {
-      font-size: 48px;
+      font-size: 64px;
       font-weight: 700;
       color: var(--meadow);
       letter-spacing: -1px;
       line-height: 1;
-      margin-bottom: 16px;
-      opacity: 0.35;
+      margin-bottom: 12px;
+      opacity: 0.25;
     }
     .hiw-step-title {
-      font-size: clamp(26px, 3vw, 38px);
+      font-size: clamp(28px, 3.2vw, 42px);
       font-weight: 600;
       color: var(--ink);
       letter-spacing: -0.5px;
       line-height: 1.2;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .hiw-step-desc {
-      font-size: 17px;
+      font-size: 18px;
       color: var(--stone);
-      line-height: 1.8;
+      line-height: 1.85;
       text-align: justify;
     }
     .hiw-visual {
@@ -414,8 +429,8 @@
     }
     .hiw-phone {
       width: 100%;
-      max-width: 320px;
-      border-radius: 44px;
+      max-width: 100%;
+      border-radius: 40px;
       overflow: hidden;
       border: 2px solid var(--sand);
       box-shadow:
@@ -438,26 +453,22 @@
     .hiw-phone img {
       width: 100%;
       display: block;
-      border-radius: 40px;
+      border-radius: 37px;
     }
     @media (max-width: 768px) {
-      .hiw-step {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 56px 0;
-      }
+      .hiw-step { grid-template-columns: 1fr; gap: 48px; padding: 64px 0; }
       .hiw-step--reverse { direction: ltr; }
       .hiw-visual { order: -1; }
-      .hiw-phone { max-width: 300px; margin: 0 auto; }
+      .hiw-phone { max-width: 340px; margin: 0 auto; }
     }
 
     /* ── WHO IT'S FOR ── */
     .who-section {
       background: var(--forest);
-      padding: 112px 5%;
+      padding: 120px 5%;
     }
     .who-inner {
-      max-width: 1080px;
+      max-width: var(--max-w);
       margin: 0 auto;
     }
     .who-section .section-eyebrow {
@@ -470,7 +481,7 @@
       text-align: center;
     }
     .who-section h2 {
-      font-size: clamp(32px, 4vw, 52px);
+      font-size: clamp(36px, 4.5vw, 58px);
       font-weight: 600;
       color: var(--white);
       letter-spacing: -1px;
@@ -482,7 +493,7 @@
     .who-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 3px;
       background: rgba(255,255,255,0.06);
       border-radius: 20px;
       overflow: hidden;
@@ -490,7 +501,7 @@
     }
     .who-card {
       background: rgba(255,255,255,0.03);
-      padding: 56px 48px;
+      padding: 64px 52px;
       border: none;
       transition: background 0.2s;
     }
@@ -498,16 +509,16 @@
       background: rgba(255,255,255,0.07);
     }
     .who-card h3 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 16px;
       line-height: 1.3;
     }
     .who-card p {
-      font-size: 16px;
+      font-size: 17px;
       color: rgba(255,255,255,0.65);
-      line-height: 1.75;
+      line-height: 1.8;
       text-align: justify;
     }
     @media (max-width: 768px) {
@@ -517,39 +528,40 @@
     /* ── SOCIAL PROOF ── */
     .proof-section {
       background: var(--parchment);
-      padding: 96px 5%;
+      padding: 112px 5%;
       border-top: 1px solid var(--sand);
     }
-    .proof-inner { max-width: 1080px; margin: 0 auto; }
+    .proof-inner { max-width: var(--max-w); margin: 0 auto; }
     .proof-quotes {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 72px;
+      gap: 28px;
+      margin-bottom: 40px;
     }
     .proof-quote-card {
       background: var(--white);
       border: 1px solid var(--sand);
       border-radius: 20px;
-      padding: 36px 32px;
+      padding: 44px 40px;
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
     .proof-quote-text {
-      font-size: 18px;
+      font-size: 20px;
       font-style: italic;
       color: var(--ink);
-      line-height: 1.7;
+      line-height: 1.75;
       flex: 1;
       text-align: justify;
     }
     .proof-single-attr {
       text-align: center;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--stone);
-      margin-top: -48px;
-      margin-bottom: 56px;
+      margin-top: 0;
+      margin-bottom: 64px;
+      padding-top: 8px;
     }
     .proof-single-attr strong {
       color: var(--ink);
@@ -573,7 +585,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 40px;
+      gap: 48px;
       flex-wrap: wrap;
     }
     .proof-logo-item {
@@ -584,14 +596,14 @@
     }
     .proof-logo-item:hover { opacity: 1; }
     .proof-logo-img {
-      height: 48px;
+      height: 56px;
       width: auto;
       display: block;
       object-fit: contain;
     }
     .proof-logo-sep-line {
       width: 1px;
-      height: 48px;
+      height: 56px;
       background: var(--sand);
     }
     @media (max-width: 640px) {
@@ -603,7 +615,7 @@
     /* ── CTA ── */
     .cta-section {
       position: relative;
-      padding: 96px 5%;
+      padding: 120px 5%;
       text-align: center;
       overflow: hidden;
     }
@@ -626,19 +638,19 @@
     }
 
     .cta-section h2 {
-      font-size: clamp(26px, 3.5vw, 40px);
+      font-size: clamp(32px, 4vw, 52px);
       font-weight: 600;
       letter-spacing: -0.8px;
       color: var(--white);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.2;
       text-wrap: balance;
     }
 
     .cta-section p {
-      font-size: 17px;
+      font-size: 18px;
       color: rgba(255,255,255,0.6);
-      margin-bottom: 36px;
+      margin-bottom: 40px;
       line-height: 1.6;
     }
 
@@ -647,11 +659,11 @@
       background: rgba(126,200,160,0.15);
       border: 1px solid rgba(126,200,160,0.3);
       border-radius: 100px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: #7ec8a0;
-      padding: 6px 14px;
-      margin-bottom: 24px;
+      padding: 8px 18px;
+      margin-bottom: 28px;
       margin-top: 8px;
     }
 
@@ -731,28 +743,32 @@
       <p class="hero-sub">The mobile app that replaces your binder. Protocol tracking, flush records, and embryo grading from your phone.</p>
       <div class="hero-cta">
         <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-primary">Request Early Access</a>
+        <p class="hero-note">Free during early access. No credit card required.</p>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-num">$648M</div>
-      <div class="stat-label">US equine reproduction<br>market</div>
-      <div class="stat-source">AAEP Market Analysis, 2024</div>
+  <!-- PAIN POINTS -->
+  <section class="pain-section">
+    <div class="pain-inner">
+      <div class="pain-card">
+        <p class="pain-quote">"I left the binder at the last ranch."</p>
+        <p class="pain-body">No history. No protocol. A time-sensitive procedure on a $200K horse — and you're starting from memory.</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-quote">Rough notes during the procedure. Transcribed later.</p>
+        <p class="pain-body">That gap between the stall and the spreadsheet is where errors, liability, and lost data live.</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-quote">10 mares. Different protocol days. No dashboard.</p>
+        <p class="pain-body">Just a paper grid. Missing one day or miscalculating an offset has direct consequences on a $5K–$40K cycle.</p>
+      </div>
+      <div class="pain-card">
+        <p class="pain-quote">Every season starts from scratch.</p>
+        <p class="pain-body">No record of which protocols worked, which mares had low recovery, what the sire produced. That knowledge walks out the door in a binder.</p>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-num">1 vet</div>
-      <div class="stat-label">serves 20–50 ranches —<br>distribution built in</div>
-      <div class="stat-source">AAEP Practitioner Survey, 2023</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Purpose-built tools for<br>equine embryo transfer</div>
-      <div class="stat-source">Analysis of 14 livestock &amp; vet software platforms, 2026</div>
-    </div>
-  </div>
+  </section>
 
   <!-- PROBLEM / SOLUTION -->
   <section class="ps-section">
@@ -801,8 +817,8 @@
 
       <div class="hiw-header">
         <div class="hiw-eyebrow">How it works</div>
-        <h2 class="hiw-heading">Three problems. One platform.</h2>
-        <p class="hiw-subhead">Designed for one hand, offline, at 6 AM.</p>
+        <h2 class="hiw-heading">Everything you track. Finally in one place.</h2>
+        <p class="hiw-subhead">Designed for one hand, offline, at 6 AM. Built for the way you actually work.</p>
       </div>
 
       <div class="hiw-step">
@@ -935,9 +951,9 @@
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="cta-content">
-      <h2>Join the vets shaping equine repro.</h2>
+      <h2>Built for the way you actually work.</h2>
       <div class="cta-traction">In conversations with repro vets across the US, Mexico, and Ecuador</div>
-      <p>We're onboarding a small group of reproduction vets this summer. Free during early access.</p>
+      <p>We're onboarding a small group of repro vets this summer. No paper. No transcription. Free during early access.</p>
       <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-cta">Request Early Access</a>
       <div class="cta-note">No spam. No pitch. Just a conversation.</div>
     </div>
