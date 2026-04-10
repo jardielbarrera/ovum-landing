@@ -90,10 +90,13 @@
     }
 
     .nav-logo {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-img {
+      height: 32px;
+      width: auto;
+      display: block;
     }
 
     .nav-right {
@@ -239,6 +242,7 @@
       font-size: 15px;
       color: rgba(255,255,255,0.5);
       line-height: 1.75;
+      text-align: justify;
     }
     @media (max-width: 900px) {
       .pain-inner { grid-template-columns: repeat(2, 1fr); }
@@ -269,6 +273,7 @@
       grid-template-columns: 1fr 40px 1fr;
       gap: 0;
       align-items: start;
+      align-content: start;
     }
     .ps-divider {
       width: 1px;
@@ -727,7 +732,9 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Ovum</div>
+    <div class="nav-logo">
+      <img src="Your%20paragraph%20text%20(1).svg" alt="Ovum" class="nav-logo-img" />
+    </div>
     <div class="nav-right">
       <span class="nav-context">For equine repro vets</span>
       <a href="https://tally.so/r/44vJVA" target="_blank" class="btn-nav">Request Early Access</a>
@@ -783,11 +790,6 @@
           <li>Embryo grades scribbled on sticky notes, lost by Friday</li>
           <li>Client calls about frozen inventory answered from a drawer</li>
         </ul>
-        <div class="ps-image">
-          <img src="problem-paperwork.jpg"
-               alt="Veterinary staff reviewing paper records at a barn workstation"
-               loading="lazy" />
-        </div>
       </div>
 
       <div class="ps-divider"></div>
