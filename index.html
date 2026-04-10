@@ -92,11 +92,21 @@
     .nav-logo {
       display: flex;
       align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
     .nav-logo-img {
-      height: 32px;
-      width: auto;
+      height: 36px;
+      width: 36px;
+      object-fit: contain;
+      border-radius: 8px;
       display: block;
+    }
+    .nav-logo-text {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.5px;
     }
 
     .nav-right {
@@ -733,7 +743,8 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <img src="logo.svg" alt="Ovum" class="nav-logo-img" />
+      <img src="logo-mark.png" alt="Ovum" class="nav-logo-img" />
+      <span class="nav-logo-text">Ovum</span>
     </div>
     <div class="nav-right">
       <span class="nav-context">For equine repro vets</span>
